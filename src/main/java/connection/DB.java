@@ -107,8 +107,6 @@ public class DB
     
     public void desconectar() throws SQLException 
     {
-
         conn.close();
-
     }
 }
