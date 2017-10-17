@@ -110,17 +110,6 @@ public class DB
         conn.close();
     }
 }
-
-
-
-
-
-
-
-
-
-
-61
 20
 21
 22
