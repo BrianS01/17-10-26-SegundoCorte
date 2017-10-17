@@ -11,11 +11,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- *
- * @author BRIAN
- */
-public class DB {
+public class DB
+{
     private static String urlDB1 = "jdbc:mysql://localhost:3306/BasesSegundoProyecto";
     private static String userDB1 = "root";
     private static String passwordDB1 = "root";
