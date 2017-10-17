@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  PROYECTO SEGUNDO CORTE
+ *      Author ::: Brian Sterling
+ *     Program ::: Bases de Datos
+ *  Credential ::: SIST0008-G01:SIV
  */
 package connection;
 
@@ -13,7 +14,7 @@ import java.sql.SQLException;
 
 public class DB
 {
-    private static String urlDB1 = "jdbc:mysql://localhost:3306/BasesSegundoProyecto";
+    private static String urlDB1 = "jdbc:mysql://localhost:3306/Bases17SegundoProyecto";
     private static String userDB1 = "root";
     private static String passwordDB1 = "root";
     private Connection conn;
