@@ -19,7 +19,6 @@ public class DB
     private static String passwordDB1 = "root";
     private Connection conn;
     
-    
     public static synchronized Connection getConexion()
     {
         Connection cn = null;
@@ -38,7 +37,6 @@ public class DB
         }
     }
 
-    
     //Metodo utilizado para cerrar el callablestatemente
     public static synchronized void cerrarCall(CallableStatement cl) 
     {
@@ -49,7 +47,6 @@ public class DB
         catch (Exception e) {}
     }
 
-    
     //Metodo utilizado para cerrar el resulset de datos
     public static synchronized void cerrarConexion(ResultSet rs) 
     {
@@ -60,7 +57,6 @@ public class DB
         catch (Exception e) {}
     }
 
-    
     //Metodo utilizado para cerrar la conexion
     public static synchronized void cerrarConexion(Connection cn) 
     {
@@ -71,7 +67,6 @@ public class DB
         catch (Exception e) {}
     }
 
-    
     //Metodo utilizado para deshacer los cambios en la base de datos
     public static synchronized void deshacerCambios(Connection cn) {
         try
@@ -81,18 +76,15 @@ public class DB
         catch (Exception e) {}
     }
     
-    
     public Connection getConn() 
     {
         return conn;
     }
 
-    
     public void setConn(Connection conn) 
     {
         this.conn = conn;
     }
-    
     
     public void conectar() throws ClassNotFoundException, SQLException 
     {
@@ -104,12 +96,8 @@ public class DB
         finally {}
     }
 
-    
     public void desconectar() throws SQLException 
     {
         conn.close();
     }
 }
-
-
-30
