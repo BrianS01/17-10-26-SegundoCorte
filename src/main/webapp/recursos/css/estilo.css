@@ -65,11 +65,7 @@ input[type="time"]:focus, input[type="url"]:focus, textarea:focus, select:focus
     background: #d2d9dd;
 }
 
-select
-{
-    -webkit-appearance: menulist-button;
-    height:35px;
-}
+
 
 
 
