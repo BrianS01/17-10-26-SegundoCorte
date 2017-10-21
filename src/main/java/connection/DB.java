@@ -28,6 +28,7 @@ public class DB
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
+            
             cn = DriverManager.getConnection(urlDB1, userDB1, passwordDB1);
         } 
         
