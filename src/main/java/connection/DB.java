@@ -24,6 +24,7 @@ public class DB
     
     public static synchronized Connection getConexion()
     {
+        
         Connection cn = null;
         try
         {
