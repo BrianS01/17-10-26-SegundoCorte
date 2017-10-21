@@ -30,6 +30,7 @@ public class DB
             Class.forName("com.mysql.jdbc.Driver");
             cn = DriverManager.getConnection(urlDB1, userDB1, passwordDB1);
         } 
+        
         catch (Exception e) 
         {
             cn = null;
