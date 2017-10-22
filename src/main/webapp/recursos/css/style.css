@@ -1,3 +1,13 @@
+/*
+ *  PROYECTO SEGUNDO CORTE
+ *   co-Author :::   Juan Albarracin
+ *   co-Author :::  Mario Bolaños
+ *   co-Author ::: Sergio Orozco
+ *   co-Author :::  Brian Sterling
+ *     Program ::: Bases de Datos
+ *  Credential ::: SIST0008-G01:SIV
+*/
+
 @media only screen
 and (max-width : 640px)
 {
@@ -560,13 +570,15 @@ and (max-width : 1024px)
     }
     label
     {
-        font-weight:normal;}
-    .Services .totopshow {
-        display: block;}
+        font-weight:normal;
+    }
+    .Services .totopshow 
+    {
+        display: block;
+    }
     .Services .container 
     {
         width:100%;
-
     }
     .Services .ttr_footer_bottom_footer_inner,.Services #ttr_footer_top_for_widgets 
     {
@@ -5805,7 +5817,7 @@ nav#ttr_menu
 }
 #Slide0
 {
-    background:url(images/HomeDesktopSlide0.jpg);
+    background:url(recursos/imagen/VLCbanner01.jpg);
     background-color:#FFFFFF;
     background-repeat:no-repeat;
     background-size:cover;
@@ -5814,7 +5826,7 @@ nav#ttr_menu
 }
 #Slide1
 {
-    background:url(images/HomeDesktopSlide1.jpg);
+    background:url(recursos/imagen/VLCbanner02.jpg);
     background-color:#FFFFFF;
     background-repeat:no-repeat;
     background-size:cover;
@@ -5823,7 +5835,16 @@ nav#ttr_menu
 }
 #Slide2
 {
-    background:url(images/HomeDesktopSlide2.jpg);
+    background:url(recursos/imagen/VLCbanner03.jpg);
+    background-color:#FFFFFF;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:Center Center;
+    background-clip:padding-box;
+}
+#Slide3
+{
+    background:url(recursos/imagen/VLCbanner04.jpg);
     background-color:#FFFFFF;
     background-repeat:no-repeat;
     background-size:cover;
@@ -5834,12 +5855,10 @@ nav#ttr_menu
 {
     height:500px;
     width:100%;
-
 }
 #ttr_slideshow_inner ul
 {
     list-style: outside none none;
-
 }
 #ttr_slideshow_inner 
 {
@@ -5847,7 +5866,6 @@ nav#ttr_menu
     position:relative;
     overflow:hidden;
     width:100%;
-
 }
 #ttr_slideshow_inner ul li > a 
 {
@@ -5855,12 +5873,10 @@ nav#ttr_menu
     position:absolute;
     overflow:hidden;
     width:100%;
-
 }
 #ttr_slideshow_inner > ul li
 {
     position:absolute;
-
 }
 .ttr_slideshow_in
 {
@@ -5869,12 +5885,10 @@ nav#ttr_menu
     width:100%;
     top:0;
     pointer-events:none;
-
 }
 .ttr_slideshow_in .ttr_slideshow_last div, .ttr_slideshow_in .ttr_slideshow_last a 
 {
     pointer-events:auto;
-
 }
 .ttr_slideshow_last
 {
@@ -5883,12 +5897,10 @@ nav#ttr_menu
     overflow:hidden;
     pointer-events:none;
     height:500px;
-
 }
 .ttr_slideshow_last div a, .ttr_slideshow_last a 
 {
     pointer-events:auto;
-
 }
 .ttr_slideshow
 {
@@ -5904,7 +5916,6 @@ nav#ttr_menu
     margin-right:0px;
     margin-bottom:0px;
     height:500px;
-
 }
 .paginationLink a.pg
 {
@@ -10809,4 +10820,3 @@ and (max-width : 767px)
         padding-bottom:0px;
     }
 }
-
