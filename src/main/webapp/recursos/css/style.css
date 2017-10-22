@@ -5817,7 +5817,7 @@ nav#ttr_menu
 }
 #Slide0
 {
-    background:url(recursos/imagen/VLCbanner01.jpg);
+    background-image:url("recursos/imagen/VLCbanner01.jpg");
     background-color:#FFFFFF;
     background-repeat:no-repeat;
     background-size:cover;
