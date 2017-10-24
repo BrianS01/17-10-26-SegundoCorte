@@ -7,7 +7,8 @@
  * GPL Licensed
  */
 
-;(function ($)
+//;(function ($)
+(function $()
 {
     var _bgStretcherAction = false;
     var _bgStretcherTm = null;

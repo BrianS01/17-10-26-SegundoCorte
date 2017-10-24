@@ -135,7 +135,7 @@ jQuery(document).ready(function ()
                 data: {'Message': messsage_body},
                 success: function (msg)
                 {
-                    if (msg == 'sent')
+                    if (msg === 'sent')
                     {
                         jQuery(form_id + ' .success').html('<div class="alert alert-success">Message Sent Successfully</div>');
                         jQuery(form_id + ' .has-error').hide();
