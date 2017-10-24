@@ -2,7 +2,7 @@ function navigationmenu()
 {
     (function ()
     {
-        if (document.getElementById('navigationmenu') != null)
+        if (document.getElementById('navigationmenu') !== null)
         {
             var button = document.getElementById('navigationmenu').getElementsByTagName('h3')[0], menuitems = document.getElementById('navigationmenu').getElementsByTagName('ul')[0];
             if (undefined === button)
@@ -20,7 +20,7 @@ function navigationmenu()
             {
                 var items = document.getElementById('navigationmenu').getElementsByTagName('ul')[0];
                 
-                if (-1 != this.className.indexOf('toggled-on'))
+                if (-1 !== this.className.indexOf('toggled-on'))
                 {
                     this.className = this.className.replace(' toggled-on', '');
                     items.className = items.className.replace(' toggled-on', '');
@@ -42,7 +42,7 @@ function navigationmenu()
                 var x = button.currentStyle['display'];
             }
             
-            if (x == 'none')
+            if (x === 'none')
             {
                 var menu = document.getElementsByClassName('ttr_menu_items');
                 
@@ -67,9 +67,9 @@ function navigationmenu()
                                     var z = menu[0].currentStyle['zIndex'];
                                 }
                                 
-                                if (z == 500)
+                                if (z === 500)
                                 {
-                                    if (-1 == this.className.indexOf(' toggled-on'))
+                                    if (-1 === this.className.indexOf(' toggled-on'))
                                     {
                                         var toggleClass = $(this.parentNode).find('.toggled-on');
                                         
@@ -79,7 +79,7 @@ function navigationmenu()
                                         }
                                     }
                                     
-                                    if (-1 != this.className.indexOf(' toggled-on'))
+                                    if (-1 !== this.className.indexOf(' toggled-on'))
                                     {
                                         var cssClass = document.getElementsByClassName('toggled-on');
                                         
@@ -134,11 +134,11 @@ function navigationmenu()
                         var y = vmenu[0].currentStyle["listStyleType"];
                     }
                     
-                    if (y != 'none')
+                    if (y !== 'none')
                     {
                         var childname = $(this).find('.child');
                         
-                        if (-1 != childname[0].className.indexOf('vtoggled-on'))
+                        if (-1 !== childname[0].className.indexOf('vtoggled-on'))
                         {
                             childname[0].className = childname[0].className.replace(' vtoggled-on', '');
                         }

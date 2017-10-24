@@ -36,11 +36,11 @@
         prefix = $.fn.TTSlider.settings.cssPrefix;
         timeout = $.fn.TTSlider.settings.begintime;
 
-        if (transitionEffect == 'None' || transitionEffect == 'Blind' || transitionEffect == 'Circlereveal' || transitionEffect == 'Fade' || transitionEffect == 'Pixelate' || transitionEffect == 'RadialBlur' || transitionEffect == 'Ripple' || transitionEffect == 'Wipe' || transitionEffect == 'SlideLeft' || transitionEffect == 'SlideRight' || transitionEffect == 'SlideTop' || transitionEffect == 'SlideBottom')
+        if (transitionEffect === 'None' || transitionEffect === 'Blind' || transitionEffect === 'Circlereveal' || transitionEffect === 'Fade' || transitionEffect === 'Pixelate' || transitionEffect === 'RadialBlur' || transitionEffect === 'Ripple' || transitionEffect === 'Wipe' || transitionEffect === 'SlideLeft' || transitionEffect === 'SlideRight' || transitionEffect === 'SlideTop' || transitionEffect === 'SlideBottom')
         {
             var list = currentSlide.find('.' + prefix + 'slideshow_last').children().size();
             
-            if (list != 0)
+            if (list !== 0)
             {
                 currentSlide.find('.' + prefix + 'slideshow_last').children().hide();
                 $.fn.TTSlider.effectForeground(currentSlide);
@@ -72,7 +72,7 @@
         var next;
         $(currentSlide).stop(true, true);
         
-        if (index_next == -1)
+        if (index_next === -1)
         {
             next = currentSlide.next();
             
@@ -81,7 +81,7 @@
                 next = element.find('> ul li:first');
             }
         }
-        else if (index_next == -2)
+        else if (index_next === -2)
         {
             next = currentSlide.prev();
             if (!next.length)
@@ -148,7 +148,7 @@
         {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             
-            if (list != 0)
+            if (list !== 0)
             {
                 $.fn.TTSlider.effectForeground(next);
             }
@@ -171,7 +171,7 @@
         {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             
-            if (list != 0)
+            if (list !== 0)
             {
                 $.fn.TTSlider.effectForeground(next);
             }
@@ -195,7 +195,7 @@
             next.css({"border-radius": "0%"});
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             
-            if (list != 0)
+            if (list !== 0)
             {
                 $.fn.TTSlider.effectForeground(next);
             }
@@ -216,7 +216,7 @@
         {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             
-            if (list != 0)
+            if (list !== 0)
             {
                 $.fn.TTSlider.effectForeground(next);
             }
@@ -236,10 +236,12 @@
         current.hide('drop', {direction: 'right'}, $.fn.TTSlider.settings.slideShowSpeed, function ()
         {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
-            if (list != 0)
+            
+            if (list !== 0)
             {
                 $.fn.TTSlider.effectForeground(next);
             }
+            
             _bgStretcherAction = false;
             _bgStretcherTm = setTimeout('jQuery.fn.TTSlider.slideShow(\'' + jQuery.fn.TTSlider.settings.sequenceMode + '\', -1)', timeout);
         });
@@ -257,7 +259,7 @@
         {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             
-            if (list != 0)
+            if (list !== 0)
             {
                 $.fn.TTSlider.effectForeground(next);
             }
@@ -280,7 +282,7 @@
         {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             
-            if (list != 0)
+            if (list !== 0)
             {
                 $.fn.TTSlider.effectForeground(next);
             }
@@ -303,7 +305,7 @@
         {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             
-            if (list != 0)
+            if (list !== 0)
             {
                 $.fn.TTSlider.effectForeground(next);
             }
@@ -326,7 +328,7 @@
         {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             
-            if (list != 0)
+            if (list !== 0)
             {
                 $.fn.TTSlider.effectForeground(next);
             }
@@ -370,7 +372,7 @@
                 current.hide();
                 var list = next.find('.' + prefix + 'slideshow_last').children().size();
                 
-                if (list != 0)
+                if (list !== 0)
                 {
                     $.fn.TTSlider.effectForeground(next);
                 }
@@ -576,7 +578,7 @@
 
     $.fn.TTSlider._clearTimeout = function ()
     {
-        if (_bgStretcherTm != null)
+        if (_bgStretcherTm !== null)
         {
             clearTimeout(_bgStretcherTm);
             _bgStretcherTm = null;
@@ -816,7 +818,7 @@
                     break;
                     
                 case 'right,top':
-                    if (effectt == 'Fade')
+                    if (effectt === 'Fade')
                     {
                         $("." + div).css({'left': w + 'px', 'top': -f_height + 'px'}).delay(t).fadeIn(1000).animate({'left': left, 'top': topp}, d, easingg);
                     }
