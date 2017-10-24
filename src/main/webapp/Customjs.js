@@ -4,11 +4,11 @@ $(document).ready(function ()
     var inputs = document.getElementsByTagName('input');
     for (a = 0; a < inputs.length; a++)
     {
-        if (inputs[a].type == "checkbox")
+        if (inputs[a].type === "checkbox")
         {
             var id = inputs[a].getAttribute("id");
             
-            if (id == null)
+            if (id === null)
             {
                 id = "checkbox" + a;
             }
@@ -27,10 +27,11 @@ $(document).ready(function ()
     
     for (a = 0; a < inputs.length; a++)
     {
-        if (inputs[a].type == "radio")
+        if (inputs[a].type === "radio")
         {
             var id = inputs[a].getAttribute("id");
-            if (id == null)
+            
+            if (id === null)
             {
                 id = "radio" + a;
             }
@@ -215,11 +216,11 @@ function tt_equal_height(cols)
         $child_h = $(this).children().outerHeight();
         $parent_h = $(this).height();
         
-        if (maxHeight != $parent_h)
+        if (maxHeight !== $parent_h)
         {
             $(this).children().css('height', 'inherit');
             
-            if ($child_h == $parent_h)
+            if ($child_h === $parent_h)
             {
                 $(this).css('height', maxHeight + 'px');
             }
