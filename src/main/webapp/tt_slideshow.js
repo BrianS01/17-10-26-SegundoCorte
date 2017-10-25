@@ -1,3 +1,13 @@
+/*
+ *  PROYECTO SEGUNDO CORTE
+ *   co-Author :::   Juan Albarracin
+ *   co-Author :::  Mario Bolaños
+ *   co-Author ::: Sergio Orozco
+ *   co-Author :::  Brian Sterling
+ *     Program ::: Bases de Datos
+ *  Credential ::: SIST0008-G01:SIV
+ */
+
 /**
  * tt_slideshow.js 1.0.0
  * Main file for the slider, it includes all the effect and animations for the background images as well as slideshow foreground shapes and images.
@@ -7,7 +17,8 @@
  * GPL Licensed
  */
 
-; (function ($) {
+;
+(function ($) {
     var _bgStretcherAction = false;
     var _bgStretcherTm = null;
     var element = null;
@@ -28,15 +39,15 @@
         element1 = $(this).find("ul");
         currentSlide = element.find('> ul li:first');
         transitionEffect = currentSlide.attr("data-slideEffect");
-		
+
         settings = $.extend({}, $.fn.TTSlider.defaults, settings);
         $.fn.TTSlider.settings = settings;
-        
+
         prefix = $.fn.TTSlider.settings.cssPrefix;
         timeout = $.fn.TTSlider.settings.begintime;
         if (transitionEffect == 'None' || transitionEffect == 'Blind' || transitionEffect == 'Circlereveal' || transitionEffect == 'Fade' || transitionEffect == 'Pixelate' || transitionEffect == 'RadialBlur' || transitionEffect == 'Ripple' || transitionEffect == 'Wipe' || transitionEffect == 'SlideLeft' || transitionEffect == 'SlideRight' || transitionEffect == 'SlideTop' || transitionEffect == 'SlideBottom') {
-            
-			var list = currentSlide.find('.' + prefix + 'slideshow_last').children().size();
+
+            var list = currentSlide.find('.' + prefix + 'slideshow_last').children().size();
             if (list != 0) {
                 currentSlide.find('.' + prefix + 'slideshow_last').children().hide();
                 $.fn.TTSlider.effectForeground(currentSlide);
@@ -54,7 +65,7 @@
     $.fn.TTSlider.defaults = {
 
         slideShowSpeed: '3000',
-        begintime:'1000',
+        begintime: '1000',
         transitionEffect: 'fade', // none, fade, simpleSlide, superSlide
         slideDirection: 'N', // N, S, W, E, (if superSlide - NW, NE, SW, SE)
         sequenceMode: 'normal', // back, random
@@ -69,14 +80,16 @@
         if (index_next == -1) {
 
             next = currentSlide.next();
-            if (!next.length) { next = element.find('> ul li:first'); }
-        }
-        else if (index_next == -2) {
+            if (!next.length) {
+                next = element.find('> ul li:first');
+            }
+        } else if (index_next == -2) {
 
             next = currentSlide.prev();
-            if (!next.length) { next = element.find('> ul li:last'); }
-        }
-        else {
+            if (!next.length) {
+                next = element.find('> ul li:last');
+            }
+        } else {
             next = element.find('#Slide' + index_next);
         }
 
@@ -87,8 +100,8 @@
         var index1 = next.attr('id').substring(5);
         var nav1 = $('.paginationLink').eq(index1);
         nav1.addClass('current');
-        next.css({ "left": "0px", "top": "0px" });
-        currentSlide.css({ "left": "0px", "top": "0px" });
+        next.css({"left": "0px", "top": "0px"});
+        currentSlide.css({"left": "0px", "top": "0px"});
         next.find('.' + prefix + 'slideshow_last').children().css("display", "none");
         transitionEffect = next.attr("data-slideEffect");
         switch (transitionEffect) {
@@ -171,13 +184,13 @@
     // ================= CircleReveal Effect
     $.fn.TTSlider.effectCirclereveal = function (current, next) {
         next.hide(0);
-        next.css({ "border-radius": "50%" });
-        next.show("scale", { percent: 100, direction: 'both' }, $.fn.TTSlider.settings.slideShowSpeed, function () {
+        next.css({"border-radius": "50%"});
+        next.show("scale", {percent: 100, direction: 'both'}, $.fn.TTSlider.settings.slideShowSpeed, function () {
             //current.appendTo(element);
             var slides = $(element.selector + ' > ul li:lt(' + next.index() + ')');
             slides.appendTo(element1);
             current.hide();
-            next.css({ "border-radius": "0%" });
+            next.css({"border-radius": "0%"});
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             if (list != 0) {
                 $.fn.TTSlider.effectForeground(next);
@@ -193,7 +206,7 @@
         next.show();
         var slides = $(element.selector + ' > ul li:lt(' + next.index() + ')');
         slides.appendTo(element1);
-        current.hide("puff", { percent: 150 }, $.fn.TTSlider.settings.slideShowSpeed, function () {
+        current.hide("puff", {percent: 150}, $.fn.TTSlider.settings.slideShowSpeed, function () {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             if (list != 0) {
                 $.fn.TTSlider.effectForeground(next);
@@ -209,7 +222,7 @@
         var slides = $(element.selector + ' > ul li:lt(' + next.index() + ')');
         slides.appendTo(element1);
 
-        current.hide('drop', { direction: 'right' }, $.fn.TTSlider.settings.slideShowSpeed, function () {
+        current.hide('drop', {direction: 'right'}, $.fn.TTSlider.settings.slideShowSpeed, function () {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             if (list != 0) {
                 $.fn.TTSlider.effectForeground(next);
@@ -224,8 +237,8 @@
         next.show();
         var w = element.width();
         next.css("left", "-" + w + "px");
-        current.animate({ "left": w + "px" }, $.fn.TTSlider.settings.slideShowSpeed);
-        next.animate({ "left": "0px" }, $.fn.TTSlider.settings.slideShowSpeed, function () {
+        current.animate({"left": w + "px"}, $.fn.TTSlider.settings.slideShowSpeed);
+        next.animate({"left": "0px"}, $.fn.TTSlider.settings.slideShowSpeed, function () {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             if (list != 0) {
                 $.fn.TTSlider.effectForeground(next);
@@ -241,8 +254,8 @@
         next.show();
         var w = element.width();
         next.css("left", w + "px");
-        current.animate({ "left": "-" + w + "px" }, $.fn.TTSlider.settings.slideShowSpeed);
-        next.animate({ "left": "0px" }, $.fn.TTSlider.settings.slideShowSpeed, function () {
+        current.animate({"left": "-" + w + "px"}, $.fn.TTSlider.settings.slideShowSpeed);
+        next.animate({"left": "0px"}, $.fn.TTSlider.settings.slideShowSpeed, function () {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             if (list != 0) {
                 $.fn.TTSlider.effectForeground(next);
@@ -258,8 +271,8 @@
         next.show();
         var t = element.height();
         next.css("top", "-" + t + "px");
-        current.animate({ "top": t + "px" }, $.fn.TTSlider.settings.slideShowSpeed);
-        next.animate({ "top": "0px" }, $.fn.TTSlider.settings.slideShowSpeed, function () {
+        current.animate({"top": t + "px"}, $.fn.TTSlider.settings.slideShowSpeed);
+        next.animate({"top": "0px"}, $.fn.TTSlider.settings.slideShowSpeed, function () {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             if (list != 0) {
                 $.fn.TTSlider.effectForeground(next);
@@ -275,8 +288,8 @@
         next.show();
         var t = element.height();
         next.css("top", t + "px");
-        current.animate({ "top": "-" + t + "px" }, $.fn.TTSlider.settings.slideShowSpeed);
-        next.animate({ "top": "0px" }, $.fn.TTSlider.settings.slideShowSpeed, function () {
+        current.animate({"top": "-" + t + "px"}, $.fn.TTSlider.settings.slideShowSpeed);
+        next.animate({"top": "0px"}, $.fn.TTSlider.settings.slideShowSpeed, function () {
             var list = next.find('.' + prefix + 'slideshow_last').children().size();
             if (list != 0) {
                 $.fn.TTSlider.effectForeground(next);
@@ -314,7 +327,9 @@
             setTimeout(function () {
                 current.hide();
                 var list = next.find('.' + prefix + 'slideshow_last').children().size();
-                if (list != 0) { $.fn.TTSlider.effectForeground(next); }
+                if (list != 0) {
+                    $.fn.TTSlider.effectForeground(next);
+                }
                 current.appendTo(element1);
                 _bgStretcherAction = false;
                 _bgStretcherTm = setTimeout('jQuery.fn.TTSlider.slideShow(\'' + jQuery.fn.TTSlider.settings.sequenceMode + '\', -1)', timeout);
@@ -369,7 +384,8 @@
             ++(slice.nextNumber);
         }
         return (slices);
-    };
+    }
+    ;
     function animateSlices(slices, leftLimit, topLimit, duration, delay, removeSlicesAfterAnimation) {
         var timing = 1;
         var currentElement = null;
@@ -378,7 +394,8 @@
             animator.move(currentElement, leftLimit, topLimit, duration, timing, removeSlicesAfterAnimation);
             timing = timing + delay;
         }
-    };
+    }
+    ;
 
     var animator = new Object();
     animator.move = function (ele, leftLimit, topLimit, duration, delay, remove) {
@@ -388,12 +405,21 @@
         //alert('w and h is '+w+'-'+h);
         setTimeout(function () {
             if (leftLimit == null) {
-                if (remove) { ele.animate({ height: h }, duration, function () { ele.remove(); }); }
-                else { ele.animate({ height: h }, duration); }
-            }
-            else {
-                if (remove) { ele.animate({ left: leftLimit }, duration, null, function () { ele.remove(); }); }
-                else { ele.animate({ left: leftLimit }, duration); }
+                if (remove) {
+                    ele.animate({height: h}, duration, function () {
+                        ele.remove();
+                    });
+                } else {
+                    ele.animate({height: h}, duration);
+                }
+            } else {
+                if (remove) {
+                    ele.animate({left: leftLimit}, duration, null, function () {
+                        ele.remove();
+                    });
+                } else {
+                    ele.animate({left: leftLimit}, duration);
+                }
             }
         }, delay);
     };
@@ -412,7 +438,7 @@
             //img.onload = function(){pixelate;};
             window.img.src = next.css('background-image').replace(/^url\(['"]?/, '').replace(/['"]?\)$/, '');
             v = Math.min(25, parseInt(25, 10)),
-                dx = 0.3;
+                    dx = 0.3;
             anim();
         });
 
@@ -424,8 +450,8 @@
 
     function pixelate(v) {
         var size = v * 0.02,
-            w = mycanvas.width * size,
-            h = mycanvas.height * size;
+                w = mycanvas.width * size,
+                h = mycanvas.height * size;
         ctx.drawImage(img, 0, 0, w, h);
         ctx.drawImage(mycanvas, 0, 0, w, h, 0, 0, mycanvas.width, mycanvas.height);
     }
@@ -441,43 +467,43 @@
     }
 
     /*$.fn.TTSlider.effectCirclereveal = function (current, next) {
-        next.css({ "border-radius": "50%" });
-        next.show("scale",{ percent: 100, direction: 'both' }, $.fn.TTSlider.settings.slideShowSpeed , function () {
-                /*next.css({"border-radius":"0%","-moz-transition":"border-radius 1s   linear","transition":"border-radius 1s   linear"});*/
+     next.css({ "border-radius": "50%" });
+     next.show("scale",{ percent: 100, direction: 'both' }, $.fn.TTSlider.settings.slideShowSpeed , function () {
+     /*next.css({"border-radius":"0%","-moz-transition":"border-radius 1s   linear","transition":"border-radius 1s   linear"});*/
     /*next.animate({
-         borderTopLeftRadius: 0,
-         borderTopRightRadius: 0,
-         borderBottomLeftRadius: 0,
-         borderBottomRightRadius: 0
+     borderTopLeftRadius: 0,
+     borderTopRightRadius: 0,
+     borderBottomLeftRadius: 0,
+     borderBottomRightRadius: 0
      }, $.fn.TTSlider.settings.slideShowSpeed , function () {
-         var list = next.find('.' + prefix + 'slideshow_last').children().size();
-         if (list != 0) {
-             $.fn.TTSlider.effectForeground(next);
-         }
- current.appendTo(element);
- transitionEffect = next.attr("data-slideEffect");
- setTimeout('jQuery.fn.TTSlider.slideShow(\''+jQuery.fn.TTSlider.settings.sequenceMode+'\', -1)',(timeout * 1000));
+     var list = next.find('.' + prefix + 'slideshow_last').children().size();
+     if (list != 0) {
+     $.fn.TTSlider.effectForeground(next);
+     }
+     current.appendTo(element);
+     transitionEffect = next.attr("data-slideEffect");
+     setTimeout('jQuery.fn.TTSlider.slideShow(\''+jQuery.fn.TTSlider.settings.sequenceMode+'\', -1)',(timeout * 1000));
      });
- });
-};*/
+     });
+     };*/
 
     /*$.fn.TTSlider.simpleSlide = function(next){
-        var t, l;
-        switch ($.fn.TTSlider.settings.slideDirection) {
-            case 'N':
-            case 'S':
-                t = next.index() * next.height()*(-1);
-                l = 0;
-                break;
-            default:
-                l = next.index() * next.width()*(-1);
-                t = 0;
-        }
-        element.animate({left: l+'px', top: t+'px'}, $.fn.TTSlider.settings.slideShowSpeed, function(){
-            _bgStretcherAction = false;
-            transitionEffect = next.attr("data-slideEffect");
-        });
-    };*/
+     var t, l;
+     switch ($.fn.TTSlider.settings.slideDirection) {
+     case 'N':
+     case 'S':
+     t = next.index() * next.height()*(-1);
+     l = 0;
+     break;
+     default:
+     l = next.index() * next.width()*(-1);
+     t = 0;
+     }
+     element.animate({left: l+'px', top: t+'px'}, $.fn.TTSlider.settings.slideShowSpeed, function(){
+     _bgStretcherAction = false;
+     transitionEffect = next.attr("data-slideEffect");
+     });
+     };*/
 
     $.fn.TTSlider._clearTimeout = function () {
         if (_bgStretcherTm != null) {
@@ -516,9 +542,10 @@
         var slides = $("." + $.fn.TTSlider.settings.cssPrefix + "slide");
         var numberOfSlides = slides.length;
         x.click(function () {
-            if (_bgStretcherAction || (numberOfSlides < 2)) return false;
+            if (_bgStretcherAction || (numberOfSlides < 2))
+                return false;
             /*$(element.selector + '> div:gt(0)').stop(true, true);
-            $(element.selector + '> div:gt(0) > div > div:gt(0)').stop(true, true);*/
+             $(element.selector + '> div:gt(0) > div > div:gt(0)').stop(true, true);*/
             var elem = $(element.selector + '> ul li');
             var ele = $('.' + prefix + 'slideshow_last > div');
             ele.finish();
@@ -528,15 +555,16 @@
 
         });
         y.click(function () {
-            if (_bgStretcherAction || (numberOfSlides < 2)) return false;
+            if (_bgStretcherAction || (numberOfSlides < 2))
+                return false;
             var elem = $(element.selector + '> ul li');
             var ele = $('.' + prefix + 'slideshow_last > div');
             ele.finish();
             elem.stop(true, true);
             $.fn.TTSlider._clearTimeout();
             $.fn.TTSlider.slideShow($.fn.TTSlider.settings.sequenceMode, -1);
-            
-            });
+
+        });
         $('.left-button').append(x);
         $('.right-button').append(y);
     };
@@ -562,47 +590,45 @@
             f_height = $("." + div).height();
             ////l = document.getElementsByClassName(div);
             ////style = window.getComputedStyle(l[0]),
-			////left = style.getPropertyValue('left');
+            ////left = style.getPropertyValue('left');
             ////////left = $("." + div).css("left");
             if (navigator.appVersion.indexOf("MSIE 8.") != -1) {
                 left = $("." + div).css("left");
                 right = $("." + div).css("right");
-            }
-            else {
+            } else {
                 l = document.getElementsByClassName(div);
                 style = window.getComputedStyle(l[0]),
-                left = style.getPropertyValue("left");
+                        left = style.getPropertyValue("left");
                 right = $("." + div).css("right");
             }
-            
-            if(left == "0px" && right =="0px"){
-				margin_border = 0;
-				mleft = $("." + div).css("margin-left").replace("px","");
-				if(mleft != "auto" ){
-					margin_border = Number(mleft);
-				}
-				mright = $("." + div).css('margin-right').replace("px","");
-				if(mright != "auto"){
-					margin_border = Number(mright);
-				}
-				bleft = $("." + div).css("border-left-width").replace("px","");
-				if(bleft != "auto"){
-					margin_border = Number(bleft);
-				}
-				bright = $("." + div).css("border-right-width").replace("px","");
-				if(bright != "auto"){
-					margin_border = Number(bright);
-				}
-				
-				left = ((w/2 - f_width/2)/( w - margin_border) * 100) +"%";
-				if(slidedirection == "None" || slidedirection == "top" || slidedirection == "bottom"){
-					$("." + div).css("right", "0px");
-				}
-				else{
-					$("." + div).css("right", "auto");
-				}
-			 }
-			 
+
+            if (left == "0px" && right == "0px") {
+                margin_border = 0;
+                mleft = $("." + div).css("margin-left").replace("px", "");
+                if (mleft != "auto") {
+                    margin_border = Number(mleft);
+                }
+                mright = $("." + div).css('margin-right').replace("px", "");
+                if (mright != "auto") {
+                    margin_border = Number(mright);
+                }
+                bleft = $("." + div).css("border-left-width").replace("px", "");
+                if (bleft != "auto") {
+                    margin_border = Number(bleft);
+                }
+                bright = $("." + div).css("border-right-width").replace("px", "");
+                if (bright != "auto") {
+                    margin_border = Number(bright);
+                }
+
+                left = ((w / 2 - f_width / 2) / (w - margin_border) * 100) + "%";
+                if (slidedirection == "None" || slidedirection == "top" || slidedirection == "bottom") {
+                    $("." + div).css("right", "0px");
+                } else {
+                    $("." + div).css("right", "auto");
+                }
+            }
+
             topp = $("." + div).css("top");
             var t = time * 1000;
             var d = duration * 1000;
@@ -611,87 +637,76 @@
             switch (slidedirection) {
                 case 'left':
                     if (effectt == 'Fade') {
-                        $("." + div).css({ 'left': -f_width + 'px' }).delay(t).fadeIn(1000).animate({ 'left': left }, d, easingg);
-                    }
-                    else {
-                        $("." + div).css({ 'left': -f_width + 'px' }).delay(t).show().animate({ 'left': left }, d, easingg);
+                        $("." + div).css({'left': -f_width + 'px'}).delay(t).fadeIn(1000).animate({'left': left}, d, easingg);
+                    } else {
+                        $("." + div).css({'left': -f_width + 'px'}).delay(t).show().animate({'left': left}, d, easingg);
                     }
                     break;
                 case 'right':
                     if (effectt == 'Fade') {
-                       if(left == 'auto')
-                    	{
-							$("." + div).css({ 'right': -w + 'px' }).delay(t).fadeIn(1000).animate({ 'right': right }, d, easingg);	
-						}
-						else
-						{
-							$("." + div).css({ 'left': w + 'px' }).delay(t).fadeIn(1000).animate({ 'left': left }, d, easingg);
-						}
-                    }
-                    else {
-                        if(left == 'auto')
-                    	{
-							$("." + div).css({ 'right': -w + 'px' }).delay(t).show().animate({ 'right': right }, d, easingg);	
-						}
-						else
-						{
-							$("." + div).css({ 'left': w + 'px' }).delay(t).show().animate({ 'left': left }, d, easingg);
-						}
+                        if (left == 'auto')
+                        {
+                            $("." + div).css({'right': -w + 'px'}).delay(t).fadeIn(1000).animate({'right': right}, d, easingg);
+                        } else
+                        {
+                            $("." + div).css({'left': w + 'px'}).delay(t).fadeIn(1000).animate({'left': left}, d, easingg);
+                        }
+                    } else {
+                        if (left == 'auto')
+                        {
+                            $("." + div).css({'right': -w + 'px'}).delay(t).show().animate({'right': right}, d, easingg);
+                        } else
+                        {
+                            $("." + div).css({'left': w + 'px'}).delay(t).show().animate({'left': left}, d, easingg);
+                        }
                     }
                     break;
                 case 'top':
                     if (effectt == 'Fade') {
-                        $("." + div).css({ 'top': -f_height + 'px' }).delay(t).fadeIn(1000).animate({ 'top': topp }, d, easingg);
-                    }
-                    else {
-                        $("." + div).css({ 'top': -f_height + 'px' }).delay(t).show().animate({ 'top': topp }, d, easingg);
+                        $("." + div).css({'top': -f_height + 'px'}).delay(t).fadeIn(1000).animate({'top': topp}, d, easingg);
+                    } else {
+                        $("." + div).css({'top': -f_height + 'px'}).delay(t).show().animate({'top': topp}, d, easingg);
                     }
                     break;
                 case 'bottom':
                     if (effectt == 'Fade') {
-                        $("." + div).css({ 'top': h + 'px' }).delay(t).fadeIn(1000).animate({ 'top': topp }, d, easingg);
-                    }
-                    else {
-                        $("." + div).css({ 'top': h + 'px' }).delay(t).show().animate({ 'top': topp }, d, easingg);
+                        $("." + div).css({'top': h + 'px'}).delay(t).fadeIn(1000).animate({'top': topp}, d, easingg);
+                    } else {
+                        $("." + div).css({'top': h + 'px'}).delay(t).show().animate({'top': topp}, d, easingg);
                     }
                     break;
                 case 'left,top':
                     if (effectt == 'Fade') {
-                        $("." + div).css({ 'left': -f_width + 'px', 'top': -f_height + 'px' }).delay(t).fadeIn(1000).animate({ 'left': left, 'top': topp }, d, easingg);
-                    }
-                    else {
-                        $("." + div).css({ 'left': -f_width + 'px', 'top': -f_height + 'px' }).delay(t).show().animate({ 'left': left, 'top': topp }, d, easingg);
+                        $("." + div).css({'left': -f_width + 'px', 'top': -f_height + 'px'}).delay(t).fadeIn(1000).animate({'left': left, 'top': topp}, d, easingg);
+                    } else {
+                        $("." + div).css({'left': -f_width + 'px', 'top': -f_height + 'px'}).delay(t).show().animate({'left': left, 'top': topp}, d, easingg);
                     }
                     break;
                 case 'right,top':
                     if (effectt == 'Fade') {
-                        $("." + div).css({ 'left': w + 'px', 'top': -f_height + 'px' }).delay(t).fadeIn(1000).animate({ 'left': left, 'top': topp }, d, easingg);
-                    }
-                    else {
-                        $("." + div).css({ 'left': w + 'px', 'top': -f_height + 'px' }).delay(t).show().animate({ 'left': left, 'top': topp }, d, easingg);
+                        $("." + div).css({'left': w + 'px', 'top': -f_height + 'px'}).delay(t).fadeIn(1000).animate({'left': left, 'top': topp}, d, easingg);
+                    } else {
+                        $("." + div).css({'left': w + 'px', 'top': -f_height + 'px'}).delay(t).show().animate({'left': left, 'top': topp}, d, easingg);
                     }
                     break;
                 case 'left,bottom':
                     if (effectt == 'Fade') {
-                        $("." + div).css({ 'left': -f_width + 'px', 'top': h + 'px' }).delay(t).fadeIn(1000).animate({ 'left': left, 'top': topp }, d, easingg);
-                    }
-                    else {
-                        $("." + div).css({ 'left': -f_width + 'px', 'top': h + 'px' }).delay(t).show().animate({ 'left': left, 'top': topp }, d, easingg);
+                        $("." + div).css({'left': -f_width + 'px', 'top': h + 'px'}).delay(t).fadeIn(1000).animate({'left': left, 'top': topp}, d, easingg);
+                    } else {
+                        $("." + div).css({'left': -f_width + 'px', 'top': h + 'px'}).delay(t).show().animate({'left': left, 'top': topp}, d, easingg);
                     }
                     break;
                 case 'right,bottom':
                     if (effectt == 'Fade') {
-                        $("." + div).css({ 'left': w + 'px', 'top': h + 'px' }).delay(t).fadeIn(1000).animate({ 'left': left, 'top': topp }, d, easingg);
-                    }
-                    else {
-                        $("." + div).css({ 'left': w + 'px', 'top': h + 'px' }).delay(t).show().animate({ 'left': left, 'top': topp }, d, easingg);
+                        $("." + div).css({'left': w + 'px', 'top': h + 'px'}).delay(t).fadeIn(1000).animate({'left': left, 'top': topp}, d, easingg);
+                    } else {
+                        $("." + div).css({'left': w + 'px', 'top': h + 'px'}).delay(t).show().animate({'left': left, 'top': topp}, d, easingg);
                     }
                     break;
                 default:
                     if (effectt == 'Fade') {
                         $("." + div).delay(t).fadeIn(1000);
-                    }
-                    else {
+                    } else {
                         $("." + div).delay(t).show(0);
                     }
                     break;
