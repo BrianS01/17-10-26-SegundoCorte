@@ -5805,7 +5805,7 @@ width:auto;
 }
  #Slide0
 {
-background:url(images/HomeDesktopSlide0.jpg);
+background:url(images/VLCbanner01.jpg);
 background-color:#FFFFFF;
 background-repeat:no-repeat;
 background-size:cover;
@@ -5814,7 +5814,7 @@ background-clip:padding-box;
 }
  #Slide1
 {
-background:url(images/VLCbanner01.jpg);
+background:url(images/VLCbanner02.jpg);
 background-color:#FFFFFF;
 background-repeat:no-repeat;
 background-size:cover;
@@ -5823,7 +5823,16 @@ background-clip:padding-box;
 }
  #Slide2
 {
-background:url(images/HomeDesktopSlide2.jpg);
+background:url(images/VLCbanner03.jpg);
+background-color:#FFFFFF;
+background-repeat:no-repeat;
+background-size:cover;
+background-position:Center Center;
+background-clip:padding-box;
+}
+ #Slide3
+{
+background:url(images/VLCbanner04.jpg);
 background-color:#FFFFFF;
 background-repeat:no-repeat;
 background-size:cover;
